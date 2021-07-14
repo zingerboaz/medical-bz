@@ -3,6 +3,13 @@ const express = require('express');
 const cors = require('cors');
 
 var app = express();
+app.get('',(req,res)=>{
+    res.status(200).send("welcome");
+})
+app.listen(port,function(){
+    console.log("Server is up in port: " + port);
+    
+});
 
 //const db= require('./db/mongoConnect');
 
@@ -72,10 +79,3 @@ app.get('/lll',require('./controllers/testController').userSendTest)
 
 
 const UserToken = require('./model/userToken')
-app.get('',(req,res)=>{
-    res.status(200).send("welcome");
-})
-app.listen(port,function(){
-    console.log("Server is up in port: " + port);
-    
-});

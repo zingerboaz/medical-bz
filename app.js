@@ -6,11 +6,7 @@ var app = express();
 app.get('',(req,res)=>{
     res.status(200).send("welcome");
 })
-app.listen(port,function(){
-    console.log("Server is up in port: " + port);
-    
-});
-
+console.log('kkkkk');
 //const db= require('./db/mongoConnect');
 
 const mongoose = require('mongoose');
@@ -54,7 +50,7 @@ app.use("/auth",loginRoutes)
 // Routes
 app.use("/api", function(req, res, next) {
     var userToken = new UserToken(false, req.headers['x-access-token']);
-
+    
     console.log(userToken);
     
     if(userToken.isNotExpired()){
@@ -67,15 +63,19 @@ app.use("/api", function(req, res, next) {
 });
 
 var userRoutes = require('./routes/userRouts.js');
-    app.use("/api/users",userRoutes);
+app.use("/api/users",userRoutes);
 
 var testRoutes = require('./routes/testRoutes.js')
-    app.use("/api/tests",testRoutes);
+app.use("/api/tests",testRoutes);
 
 var replyTestRoutes=require('./routes/replyTestRoutes.js')
-    app.use("/api/replyTest",replyTestRoutes);
+app.use("/api/replyTest",replyTestRoutes);
 app.get('/lll',require('./controllers/testController').userSendTest)
-    // app.use("/api/orders", require('./routes/ordersRouts.js'));
+// app.use("/api/orders", require('./routes/ordersRouts.js'));
 
 
 const UserToken = require('./model/userToken')
+app.listen(port,function(){
+    console.log("Server is up in port: " + port);
+    
+});

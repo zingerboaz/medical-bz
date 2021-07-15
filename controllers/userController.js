@@ -30,7 +30,7 @@ function userController() {
 
     }
     function deleteUser(req, res) {
-        userSchema.deleteOne({ _id: req.params._id }, function (err, result) {
+        userSchema.deleteOne({ _id: req.user._id }, function (err, result) {
 
             if (err) {
                 return res.status(500).send();

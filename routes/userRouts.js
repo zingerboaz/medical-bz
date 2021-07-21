@@ -10,8 +10,8 @@ userRoutes.put("/updateUser", userController.updateUser);
 userRoutes.put("/updateScore", userController.updateScore);
 userRoutes.put("/updateDetails", userController.updateDetails);
 
-userRoutes.delete("/deleteUser", userController.deleteUser);
+userRoutes.delete("/deleteUser/:_id", userController.deleteUser);
 userRoutes.get("/getAll", userController.getAll);
-userRoutes.get("/:_id", userController.getUser);
+userRoutes.get("/:_id", userController.getUser)
 
 module.exports = userRoutes;
